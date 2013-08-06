@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806184325) do
+ActiveRecord::Schema.define(version: 20130806194759) do
+
+  create_table "pinboard_posts", force: true do |t|
+    t.string   "href"
+    t.string   "description"
+    t.text     "extended"
+    t.string   "tag"
+    t.datetime "time"
+    t.boolean  "replace"
+    t.boolean  "shared"
+    t.boolean  "toread"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
