@@ -10,6 +10,17 @@
 
   <div class="main">
     <div class="pure-g">
+
+      <% unless flash.empty? %>
+        <div class="pure-u-1-4"></div>
+        <div class="pure-u-1-2 flash-messages">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :class => "flash-#{name}" %>
+          <% end %>
+        </div>
+        <div class="pure-u-1-4"></div>
+      <% end %>
+
       <div class="pure-u-1">
         <%= yield %>
       </div>
