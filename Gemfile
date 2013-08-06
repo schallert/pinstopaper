@@ -11,3 +11,19 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'   # JS compressor
 
 gem 'active_model_serializers'
+
+# Group specific gems
+group :test do
+  gem 'factory_girl_rails'
+  gem 'turn', '~> 0.9.0'
+  gem 'therubyracer'
+end
+
+group :development do
+  gem 'thin'
+  gem 'quiet_assets'
+end
+
+group :production do
+
+end
