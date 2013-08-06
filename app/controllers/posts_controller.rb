@@ -3,7 +3,13 @@ class PostsController < ApplicationController
   before_action :check_user_owns_post!, :only => [:show, :sync]
 
   def index
+    @posts = current_user.pinboard_posts
+  end
+
+  def unread
     @posts = current_user.pinboard_posts.unread
+    @unread = true
+    render 'index'
   end
 
   def show
