@@ -7,4 +7,6 @@ Pinstopaper::Application.routes.draw do
     post 'login' => 'devise/sessions#create', :as => :user_session
     get 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
+  get 'posts'          => 'posts#index'
 end

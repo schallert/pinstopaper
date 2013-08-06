@@ -1,0 +1,6 @@
+<h1><%= current_user.email %>'s Pinboard Posts</h1>
+<% @posts.each do |post| %>
+  <% cache(post) do %>
+    <%= render :partial => "post", :object => post %>
+  <% end %>
+<% end %>
