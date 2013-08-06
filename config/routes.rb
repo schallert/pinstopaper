@@ -9,4 +9,6 @@ Pinstopaper::Application.routes.draw do
   end
 
   get 'posts'          => 'posts#index'
+  get 'posts/:id'      => 'posts#show'
+  get 'posts/:id/sync' => 'posts#sync'
 end
