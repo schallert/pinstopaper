@@ -1,3 +1,7 @@
-<h2><%= post.description %></h2>
-<%= link_to post.href, post.href %>
-<p>Unread: <%= post.toread %></p>
+<div class="post">
+  <h2 class="post-title"><%= post.formatted_description %></h2>
+  <div class="post-content">
+    <%= link_to post.href, post.href %>
+    <p>Unread: <%= post.toread %></p>
+  </div>
+</div>
