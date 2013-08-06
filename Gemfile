@@ -13,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'   # JS compressor
 gem 'devise'
 gem 'active_model_serializers'
 
+# Memcached Stuff
+gem 'dalli'
+gem 'kgio'
+
 gem 'pinboard'
 
 # Group specific gems
