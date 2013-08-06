@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require pure-min
  *= require_tree .
  */
+
+.main {
+  margin: 50px auto 0 auto;
+  width: 960px;
+}
