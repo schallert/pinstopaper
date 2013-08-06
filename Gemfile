@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'   # JS compressor
 
+gem 'devise'
 gem 'active_model_serializers'
 
 # Group specific gems
