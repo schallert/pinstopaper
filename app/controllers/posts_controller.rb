@@ -4,16 +4,19 @@ class PostsController < ApplicationController
 
   def index
     @posts = current_user.pinboard_posts
+    @title = 'All Pins'
   end
 
   def unread
     @posts = current_user.pinboard_posts.unread
     @unread = true
+    @title = 'Unread Pins'
     render 'index'
   end
 
   def show
     # `@post` already set in before filter
+    @title = @post.description
   end
 
   # Sync a post to Instapaper
