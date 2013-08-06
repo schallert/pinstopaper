@@ -13,6 +13,8 @@ gem 'uglifier', '>= 1.3.0'   # JS compressor
 gem 'devise'
 gem 'active_model_serializers'
 
+gem 'pinboard'
+
 # Group specific gems
 group :test do
   gem 'factory_girl_rails'
