@@ -1,4 +1,5 @@
 $errorColor: rgb(202, 60, 60);
+$warningColor: rgb(223, 117, 20);
 $successColor: rgb(28, 184, 65);
 $noticeColor: rgb(66, 184, 221);
 
@@ -27,4 +28,24 @@ $noticeColor: rgb(66, 184, 221);
 
 .flash-notice {
   color: $noticeColor;
+}
+
+.pure-button-success {
+  color: white;
+  background: $successColor;
+}
+
+.pure-button-error {
+  color: white;
+  background: $errorColor;
+}
+
+.pure-button-warning {
+  color: white;
+  background: $warningColor;
+}
+
+.pure-button-secondary {
+  color: white;
+  background: $noticeColor;
 }
