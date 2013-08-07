@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require pure-min
+ *= require font-awesome
  *= require_tree .
  */

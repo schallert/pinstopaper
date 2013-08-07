@@ -16,6 +16,19 @@ class PinboardPost < ActiveRecord::Base
     end
   end
 
+  def sync
+    # Do some shit with instapaper
+    mark_as_synced
+  end
+
+  def mark_as_synced
+    update_attribute(:synced_with_instapaper, true)
+  end
+
+  def view_style
+    if synced_with_instapaper? then 'color: green' else '' end
+  end
+
   def self.create_from_pin_res (pin_res, user)
     PinboardPost.create(
       :href        => pin_res.href,

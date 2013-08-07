@@ -39,6 +39,8 @@ class PostsController < ApplicationController
   # Sync a post to Instapaper
   def sync
     # `@post` already set in before filter
+    @post.sync
+    redirect_to unread_posts_path
   end
 
   private
