@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
         :replace     => post_res.replace == "yes",
         :shared      => post_res.shared == "yes",
         :toread      => post_res.toread == "yes",
+        :tag         => post_res.tag,
         :user        => self
       )
     end
