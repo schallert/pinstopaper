@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def import_pinboard_items (posts)
+    update_attribute(:last_pinboard_import_time, DateTime.now)
     posts.each do |pin_res|
       PinboardPost.create_from_pin_res(pin_res, self)
     end
