@@ -14,6 +14,23 @@ class PostsController < ApplicationController
     render 'index'
   end
 
+  def import
+    old_count = current_user.pinboard_posts.count
+
+    if current_user.last_pinboard_import
+      current_user.import_recent_items
+    else
+      current_user.import_all_pinboard_items
+    end
+
+    new_count = current_user.pinboard_posts.count
+    difference = new_count - old_count
+
+    flash[:notice] = "Imported #{difference} pinboard items"
+
+    redirect_to unread_posts_path
+  end
+
   def show
     # `@post` already set in before filter
     @title = @post.description

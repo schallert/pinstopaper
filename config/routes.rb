@@ -11,7 +11,8 @@ Pinstopaper::Application.routes.draw do
   end
 
   get 'posts'          => 'posts#index'
-  get 'posts/unread'   => 'posts#unread'
-  get 'posts/:id'      => 'posts#show'
-  get 'posts/:id/sync' => 'posts#sync'
+  get 'posts/unread'   => 'posts#unread', :as => :unread_posts
+  get 'posts/import'   => 'posts#import', :as => :import_posts
+  get 'posts/:id'      => 'posts#show',   :as => :post
+  get 'posts/:id/sync' => 'posts#sync',   :as => :sync_post
 end
