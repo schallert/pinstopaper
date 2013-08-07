@@ -9,6 +9,7 @@ gem 'sqlite3'
 # Asset stuff
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'   # JS compressor
+gem 'font-awesome-rails', :git => 'git://github.com/bokmann/font-awesome-rails.git', :ref => '50d0eabe362f26bf0dad99b1ccae24d4bc22f7f1'
 
 gem 'devise'
 gem 'active_model_serializers'

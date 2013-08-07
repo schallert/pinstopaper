@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/bokmann/font-awesome-rails.git
+  revision: 50d0eabe362f26bf0dad99b1ccae24d4bc22f7f1
+  ref: 50d0eabe362f26bf0dad99b1ccae24d4bc22f7f1
+  specs:
+    font-awesome-rails (3.2.1.2)
+      railties (>= 3.2, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,6 +140,7 @@ DEPENDENCIES
   dalli
   devise
   factory_girl_rails
+  font-awesome-rails!
   kgio
   pinboard
   quiet_assets
