@@ -7,11 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :pinboard_posts
 
-  def client
-    @pinboard ||= Pinboard::Client.new(:token => self.pinboard_token)
-    @pinboard
-  end
-
   def all_pinboard_items
     client.posts
   end
@@ -33,5 +28,11 @@ class User < ActiveRecord::Base
 
   def import_all_pinboard_items
     import_pinboard_items(all_pinboard_items)
+  end
+
+  private
+  def client
+    @pinboard ||= Pinboard::Client.new(:token => self.pinboard_token)
+    @pinboard
   end
 end
