@@ -16,14 +16,14 @@ class User < ActiveRecord::Base
   end
 
   def import_pinboard_items (posts)
-    update_attribute(:last_pinboard_import_time, DateTime.now)
+    update_attribute(:last_pinboard_import, DateTime.now)
     posts.each do |pin_res|
       PinboardPost.create_from_pin_res(pin_res, self)
     end
   end
 
   def import_recent_items
-    recent_items = pinboard_items_since(last_pinboard_import_time)
+    recent_items = pinboard_items_since(last_pinboard_import)
     import_pinboard_items(recent_items)
   end
 
