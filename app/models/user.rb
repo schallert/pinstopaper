@@ -7,25 +7,31 @@ class User < ActiveRecord::Base
 
   has_many :pinboard_posts
 
-  def posts_from_pinboard
+  def client
     @pinboard ||= Pinboard::Client.new(:token => self.pinboard_token)
-    @pinboard_posts ||= @pinboard.posts
-    @pinboard_posts
+    @pinboard
   end
 
-  def import_pinboard_posts
-    posts_from_pinboard.each do |post_res|
-      post = PinboardPost.create(
-        :href        => post_res.href,
-        :description => post_res.description,
-        :extended    => post_res.extended,
-        :time        => post_res.time,
-        :replace     => post_res.replace == "yes",
-        :shared      => post_res.shared == "yes",
-        :toread      => post_res.toread == "yes",
-        :tag         => post_res.tag,
-        :user        => self
-      )
+  def all_pinboard_items
+    client.posts
+  end
+
+  def pinboard_items_since (after_time)
+    client.posts(:fromdt => after_time)
+  end
+
+  def import_pinboard_items (posts)
+    posts.each do |pin_res|
+      PinboardPost.create_from_pin_res(pin_res, self)
     end
+  end
+
+  def import_recent_items
+    recent_items = pinboard_items_since(last_pinboard_import_time)
+    import_pinboard_items(recent_items)
+  end
+
+  def import_all_pinboard_items
+    import_pinboard_items(all_pinboard_items)
   end
 end
