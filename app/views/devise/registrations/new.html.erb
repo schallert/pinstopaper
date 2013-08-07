@@ -13,6 +13,11 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div>
+    <%= f.label :pinboard_token %> <br>
+    <%= f.text_field :pinboard_token %>
+  </div>
+
   <br>
   <div><%= f.submit "Sign up", :class => 'pure-button pure-button-primary' %></div>
   <br>
