@@ -56,6 +56,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -70,6 +72,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.8)
     multi_xml (0.5.5)
+    multipart-post (1.2.0)
     orm_adapter (0.4.0)
     pinboard (0.1.1)
       httparty (= 0.11.0)
@@ -140,6 +143,7 @@ DEPENDENCIES
   dalli
   devise
   factory_girl_rails
+  faraday
   font-awesome-rails!
   kgio
   pinboard

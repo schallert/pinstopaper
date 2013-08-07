@@ -19,6 +19,7 @@ gem 'dalli'
 gem 'kgio'
 
 gem 'pinboard'
+gem 'faraday'
 
 # Group specific gems
 group :test do
