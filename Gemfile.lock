@@ -40,6 +40,12 @@ GEM
     atomic (1.1.12)
     bcrypt-ruby (3.1.1)
     builder (3.1.4)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     columnize (0.3.6)
     daemons (1.1.9)
     dalli (2.6.4)
@@ -68,6 +74,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    highline (1.6.19)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -83,6 +90,13 @@ GEM
     multi_json (1.7.8)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.8)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     orm_adapter (0.4.0)
     pinboard (0.1.1)
       httparty (= 0.11.0)
@@ -105,6 +119,7 @@ GEM
       activesupport (= 4.0.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.11.0)
     rake (10.1.0)
     ref (1.0.5)
     sass (3.2.10)
@@ -142,6 +157,10 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unicorn (4.6.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -150,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  capistrano
   dalli
   debugger
   devise
@@ -167,3 +187,4 @@ DEPENDENCIES
   thin
   turn (~> 0.9.0)
   uglifier (>= 1.3.0)
+  unicorn

@@ -34,8 +34,9 @@ group :development do
   gem 'thin'
   gem 'quiet_assets'
   gem 'debugger'
+  gem 'capistrano'
 end
 
 group :production do
-
+  gem 'unicorn'
 end
