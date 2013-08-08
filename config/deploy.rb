@@ -36,6 +36,7 @@ namespace :deploy do
   end
 
   task :setup_config, roles: :app do
+    run "cp #{current_path}/config/database.yml.sample #{current_path}/config/database.yml"
     run "sudo ln -nfs #{current_path}/config/nginx_pinstopaper.conf /etc/nginx/sites-enabled/#{application}"
     run "sudo ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
 
