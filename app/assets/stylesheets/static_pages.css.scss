@@ -1,3 +1,24 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header {
+  text-align: center;
+
+  .title {
+    font-family: "futura-pt",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5em;
+
+    margin: 0 auto 0 auto;
+  }
+
+  .description {
+    margin: .5em auto 2em auto;
+  }
+}
+
+.info {
+  line-height: 1.25em;
+}

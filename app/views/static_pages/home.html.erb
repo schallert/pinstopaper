@@ -1,0 +1,19 @@
+<% if current_user %>
+  <%= link_to 'Logout', destroy_user_session_path %>
+<% else %>
+  <div class="header">
+    <h1 class="title">PinsToPaper</h1>
+    <p class="description">A service for syncing your unread Pinboard items with Instapaper</p>
+  </div>
+
+  <div class="info">
+    <p>Pinboard and Instapaper are both awesome services, and they both offer a way to sync your Instapaper items to Pinboard, which can be useful. But what if you want to sync things you bookmark in Pinboard to Instapaper so you can read them later on a client such as your iPhone or iPad? Well then you're out of luck. Until now! PinsToPaper offers a way for you to sync your Pinboard items to Instapaper, specifically your unread ones.</p>
+
+    <p>PinsToPaper is something I quickly threw together for my own personal use, hence the cheesy name and less than stellar design. But that's fine, it's not meant to be pretty, it's meant to sync your items, which it does.</p>
+
+    <p>If you want to make PinsToPaper better (appreciated!) or just use it yourself, that's totally cool. The source code is available <a href="https://github.com/schallert/pinstopaper" target="_blank">on GitHub</a>.</p>
+  </div>
+
+  <%= link_to 'Login', new_user_session_path %> <br>
+  <%= link_to 'Register', new_user_registration_path %>
+<% end %>
