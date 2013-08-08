@@ -21,7 +21,7 @@ worker_processes 4
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-app_root "/opt/pinstopaper"
+app_root = "/opt/pinstopaper"
 working_directory "#{app_root}/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
