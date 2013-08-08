@@ -20,3 +20,6 @@
 
 # Stupid OSX shit
 .DS_Store
+
+# Ignore application configuration
+/config/application.yml

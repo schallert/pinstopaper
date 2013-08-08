@@ -65,6 +65,9 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -152,6 +155,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faraday
+  figaro
   font-awesome-rails!
   kgio
   pinboard
