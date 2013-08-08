@@ -39,8 +39,13 @@ class PostsController < ApplicationController
   # Sync a post to Instapaper
   def sync
     # `@post` already set in before filter
-    @post.sync
-    redirect_to unread_posts_path
+    if @post.sync(session[:instapaper_username], session[:instapaper_password])
+      flash[:success] = 'Post synced'
+      redirect_to unread_posts_path
+    else
+      flash[:error] = 'Error with Instapaper username / password, please try again'
+      redirect_to edit_user_registration_path
+    end
   end
 
   private

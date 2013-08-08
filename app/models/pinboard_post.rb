@@ -16,9 +16,15 @@ class PinboardPost < ActiveRecord::Base
     end
   end
 
-  def sync
-    # Do some shit with instapaper
-    mark_as_synced
+  def sync (username, password)
+    # Add post to instapaper
+    client = Instapaper::InstapaperClient.new(username, password)
+    if client.authenticated?
+      client.add(self.href, self.description)
+      self.mark_as_synced
+    else
+      false
+    end
   end
 
   def mark_as_synced

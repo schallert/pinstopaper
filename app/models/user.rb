@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :pinboard_posts
 
+  attr_accessor :instapaper_username, :instapaper_password
+
   def all_pinboard_items
     client.posts
   end

@@ -23,5 +23,7 @@ module Pinstopaper
     config.generators do |g|
       g.test_framework  :test_unit, :fixture_replacement => :factory_girl
     end
+
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

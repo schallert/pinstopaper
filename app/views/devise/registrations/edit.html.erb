@@ -25,6 +25,18 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <p>Instpaper User Info (this is not stored in our database)</p>
+
+  <div>
+    <%= f.label :instapaper_username %> <br>
+    <%= f.text_field :instapaper_username %>
+  </div>
+
+  <div>
+    <%= f.label :instapaper_password %> <br>
+    <%= f.password_field :instapaper_password %>
+  </div>
+
   <br>
   <div><%= f.submit "Update", :class => 'pure-button pure-button-primary' %></div>
 <% end %>
