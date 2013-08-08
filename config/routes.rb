@@ -1,14 +1,15 @@
 Pinstopaper::Application.routes.draw do
   root :to => 'static_pages#home'
 
+  as :user do
+    get 'login'   => 'devise/sessions#new',      :as => :new_user_session
+    post 'login'  => 'devise/sessions#create',   :as => :user_session
+    get 'logout'  => 'devise/sessions#destroy',  :as => :destroy_user_session
+    get 'account' => 'users/registrations#edit', :as => :edit_user_registration
+  end
+
   devise_for :users, :skip => [:sessions],
     :controllers => { :registrations => 'users/registrations' }
-
-  as :user do
-    get 'login' => 'devise/sessions#new', :as => :new_user_session
-    post 'login' => 'devise/sessions#create', :as => :user_session
-    get 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
 
   get 'posts'          => 'posts#index'
   get 'posts/unread'   => 'posts#unread', :as => :unread_posts
