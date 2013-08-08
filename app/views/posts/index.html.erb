@@ -1,4 +1,5 @@
 <h1><%= current_user.email %>'s <%= @unread ? 'Unread' : '' %> Pinboard Posts</h1>
+<%= link_to 'Import recent posts', import_posts_path %> <br> <br>
 <% @posts.each do |post| %>
   <% cache(post) do %>
     <%= render :partial => "post", :object => post %>
