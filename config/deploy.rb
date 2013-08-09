@@ -22,10 +22,12 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 before("deploy", "deploy:check_revision")
+before('deploy:assets:precompile', 'deploy:setup_db_config')
 
 after("deploy", "deploy:cleanup") # keep only the last 5 releases
 after("deploy", "deploy:reload_nginx")
 after("deploy:setup", "deploy:setup_config")
+after("deploy", "deploy:migrate")
 
 namespace :deploy do
   %w[start stop restart].each do |command|
@@ -36,11 +38,16 @@ namespace :deploy do
   end
 
   task :setup_config, roles: :app do
-    run "cp #{current_path}/config/database.yml.sample #{current_path}/config/database.yml"
     run "sudo ln -nfs #{current_path}/config/nginx_pinstopaper.conf /etc/nginx/sites-enabled/#{application}"
     run "sudo ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
 
     run "mkdir -p #{shared_path}/log"
+  end
+
+  task :setup_db_config do
+    transfer :up, "config/database.yml", "#{release_path}/config/database.yml"
+    transfer :up, "config/application.yml", "#{release_path}/config/application.yml"
+    # run "cp #{release_path}/config/database.yml.sample #{release_path}/config/database.yml"
   end
 
   desc "Make sure local git is in sync with remote."
