@@ -27,13 +27,13 @@ before('deploy:assets:precompile', 'deploy:setup_db_config')
 after("deploy", "deploy:cleanup") # keep only the last 5 releases
 after("deploy", "deploy:reload_nginx")
 after("deploy:setup", "deploy:setup_config")
-after("deploy", "deploy:migrate")
 
 namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command do
-      run "sudo service unicorn_#{application} #{command}"
+      deploy.migrate
+      run "sudo service unicorn_#{application} #{command == 'restart' ? 'upgrade' : command}"
     end
   end
 
