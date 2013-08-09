@@ -3,7 +3,8 @@ class PinboardPost < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :unread, -> { where(:toread => true) }
+  scope :unread,         -> { where(:toread => true) }
+  scope :unread_ordered, -> { unread.order('time ASC') }
 
   # Last defense in preventing importing a post multiple times
   validates :href, :uniqueness => { :scope => :user_id }
@@ -20,8 +21,11 @@ class PinboardPost < ActiveRecord::Base
     # Add post to instapaper
     client = Instapaper::InstapaperClient.new(username, password)
     if client.authenticated?
-      client.add(self.href, self.description)
-      self.mark_as_synced
+      unless synced_with_instapaper?
+        client.add(self.href, self.description)
+        self.mark_as_synced
+      end
+      true
     else
       false
     end
@@ -46,5 +50,11 @@ class PinboardPost < ActiveRecord::Base
       :toread      => pin_res.toread == "yes",
       :tag         => pin_res.tag,
       :user        => user)
+  end
+
+  def self.sync_all (username, password)
+    PinboardPost.unread_ordered.each do |post|
+      post.sync(username, password)
+    end
   end
 end

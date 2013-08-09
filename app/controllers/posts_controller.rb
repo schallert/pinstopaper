@@ -53,6 +53,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def sync_all
+    PinboardPost.sync_all(session[:instapaper_username], session[:instapaper_password])
+    redirect_to unread_posts_path
+  end
+
   private
   def check_user_owns_post!
     @post = PinboardPost.find(params[:id])
